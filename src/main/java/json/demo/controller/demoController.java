@@ -4,6 +4,7 @@ import json.demo.entity.Category;
 import json.demo.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -35,6 +36,14 @@ public class demoController {
         mav.setViewName( "aa" );
         return mav;
 
+    }
+
+
+    @RequestMapping("/demo/{id}")
+    @ResponseBody
+    public Category demo1(@PathVariable("id") int  id){
+        Category category = categoryService.getCategory( id );
+        return category;
     }
 
 

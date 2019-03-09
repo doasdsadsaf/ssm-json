@@ -19,8 +19,6 @@
     <!--包扫描 扫描service-->
     <context:component-scan base-package="json.demo.service"/>
 
-
-
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

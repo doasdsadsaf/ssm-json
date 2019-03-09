@@ -26,8 +26,13 @@
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
-
     </bean>
+
+<!--    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/result/**"/>
+        </mvc:interceptor>
+    </mvc:interceptors>-->
 
     <!--开启切面编程自动代理-->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
@@ -35,7 +40,7 @@
 
     <!--注解驱动-->
     <mvc:annotation-driven>
-    <mvc:message-converters>
+    <mvc:message-converters register-defaults="true">
     <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
     <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
     <property name="supportedMediaTypes">
@@ -44,6 +49,12 @@
     <value>application/json;charset=UTF-8</value>
     </list>
     </property>
+        <property name="features">
+            <list>
+                <value>WriteMapNullValue</value>
+                <value>QuoteFieldNames</value>
+            </list>
+        </property>
     </bean>
     </mvc:message-converters>
     </mvc:annotation-driven>
