@@ -10,10 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("")
 public class aaController {
     @RequestMapping("aa")
-    public String aa(){
+    public String aa() {
         return "aa";
     }
 
+    @RequestMapping("test")
+    public String test(){
+        return "test";
+    }
 
 
 }
